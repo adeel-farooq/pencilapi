@@ -3,7 +3,7 @@ const mongoConnection = require('./utils/database')
 const bodyparser = require("body-parser");
 const questionRoutes = require('./routes/route')
 const app = express()
-
+let PORT=5000
 
 const httpServer = require("http").createServer(app);
 
@@ -21,6 +21,6 @@ app.use("/api",questionRoutes);
 app.use((req, res, next) => {
     res.status(404).json("404 Api not");
 });
-httpServer.listen(5000,()=>{
+httpServer.listen(PORT,()=>{
     console.log('connected');
 });
